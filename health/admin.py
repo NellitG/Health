@@ -12,6 +12,7 @@ class ProgramAdmin(admin.ModelAdmin):
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'date_of_birth', 'gender')
+    search_fields = ('first_name', 'last_name')
 
 #Register Enrollment model
 @admin.register(Enrollment)
