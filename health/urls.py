@@ -4,8 +4,9 @@ from .views import ProgramViewSet, ClientViewSet, EnrollmentViewSet
 
 router = DefaultRouter()
 router.register(r'program', ProgramViewSet)
-router.register(r'client', ClientViewSet)
+router.register(r'client', ClientViewSet, basename='client')
 router.register(r'enrollment', EnrollmentViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),

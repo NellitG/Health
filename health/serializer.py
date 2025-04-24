@@ -21,3 +21,10 @@ class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
         fields = '__all__'
+
+#Include a list of programs that client is enrolled in
+class ClientProfileSerializer(serializers.ModelSerializer):
+    programs = ProgramSerializer
+    class Meta:
+        model = Client
+        fields = ['id', 'first_name', 'last_name', 'date_of_birth' 'gender', 'programs']
