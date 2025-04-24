@@ -16,11 +16,12 @@ class ProgramViewSet(viewsets.ModelViewSet):
 
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
-    serializer_class = ClientSerializer
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    serializer_class = ClientProfileSerializer
+    filter_backends = (filters.SearchFilter,)
     filterset_fields = ['first_name', 'last_name', 'gender'] 
     ordering_fields = ['first_name', 'last_name, date_of_birth']
     ordering = ['first_name']
+    search_fields = ['first_name', 'last_name']
 
     @action(detail=True, methods=['get'])
     def profile(self, request, pk=None):
