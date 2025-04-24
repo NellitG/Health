@@ -31,6 +31,7 @@ class ClientProfileSerializer(serializers.ModelSerializer):
         fields = ['id', 'first_name', 'last_name', 'date_of_birth', 'gender', 'programs']
 
     def get_programs(self, obj):
-        enrollments = obj.enrollments.select_related('program')
-        programs = [enrollment.program for enrollment in enrollments]
-        return ProgramSerializer(programs, many=True).data
+        return ProgramSerializer(
+            [Enrollment.program for Enrollment in obj.enrollments.all()],
+            many=True
+        ).data
