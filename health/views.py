@@ -7,6 +7,7 @@ from .serializer import ClientSerializer, ProgramSerializer, EnrollmentSerialize
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
+from .serializer import ClientProfileSerializer
 
 # Create your views here.
 class ProgramViewSet(viewsets.ModelViewSet):

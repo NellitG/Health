@@ -1,19 +1,19 @@
 from rest_framework import serializers
 from .models import Client, Program, Enrollment
 
-#Define the serializer for the Program model
+# Define the serializer for the Program model
 class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = Program
-        fields = '__all__'
+        fields = ['id', 'name', 'description']
 
-#Define the serializer for the Client model
+# Define the serializer for the Client model
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = '__all__'
-        
-#To convert Enrollment model to JSON format
+
+# Define the serializer for the Enrollment model
 class EnrollmentSerializer(serializers.ModelSerializer):
     client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
     program = serializers.PrimaryKeyRelatedField(queryset=Program.objects.all())
@@ -22,9 +22,15 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         model = Enrollment
         fields = '__all__'
 
-#Include a list of programs that client is enrolled in
+# Define a profile serializer that includes a list of enrolled programs
 class ClientProfileSerializer(serializers.ModelSerializer):
-    programs = ProgramSerializer
+    programs = serializers.SerializerMethodField()
+
     class Meta:
         model = Client
-        fields = ['id', 'first_name', 'last_name', 'date_of_birth' 'gender', 'programs']
+        fields = ['id', 'first_name', 'last_name', 'date_of_birth', 'gender', 'programs']
+
+    def get_programs(self, obj):
+        enrollments = obj.enrollments.select_related('program')
+        programs = [enrollment.program for enrollment in enrollments]
+        return ProgramSerializer(programs, many=True).data
