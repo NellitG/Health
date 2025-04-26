@@ -18,6 +18,8 @@ Django Admin Panel fully customized with Jazzmin.
 
 API browsable with Django REST Framework interface.
 
+Secure JWT based login
+
 
 **🛠️ Tech Stack**
 
