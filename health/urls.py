@@ -10,4 +10,5 @@ router.register(r'enrollment', EnrollmentViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
