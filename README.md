@@ -71,3 +71,7 @@ GET/POST | /api/enrollment/ | Create a new enrollment
 **🔎 Admin Access**
 
 http://127.0.0.1:8000/admin
+
+**📄 Project Presentation**
+
+You can view or download the full PowerPoint presentation [here](https://docs.google.com/presentation/d/1afaDCWTbPmWuWNfA6IIBdfyX3nzgVR5s/edit?usp=sharing&ouid=100328747526793410066&rtpof=true&sd=true).
