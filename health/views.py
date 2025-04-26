@@ -8,6 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
 from .serializer import ClientProfileSerializer
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class ProgramViewSet(viewsets.ModelViewSet):
@@ -17,6 +18,7 @@ class ProgramViewSet(viewsets.ModelViewSet):
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientProfileSerializer
+    permission_classes = [IsAuthenticated]
     filter_backends = (filters.SearchFilter,)
     filterset_fields = ['first_name', 'last_name', 'gender'] 
     ordering_fields = ['first_name', 'last_name, date_of_birth']
