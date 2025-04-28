@@ -75,3 +75,8 @@ http://127.0.0.1:8000/admin
 **📄 Project Presentation**
 
 You can view or download the full PowerPoint presentation [here](https://docs.google.com/presentation/d/1afaDCWTbPmWuWNfA6IIBdfyX3nzgVR5s/edit?usp=sharing&ouid=100328747526793410066&rtpof=true&sd=true).
+
+
+**Admin dashboard**
+
+![Health admin](https://github.com/user-attachments/assets/4b3b97df-7699-4af5-88e9-5685173c0a75)
