@@ -18,6 +18,15 @@ class Client(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
+class ClientDocument(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='documents')
+    document_type = models.CharField(max_length=100)
+    file = models.FileField(upload_to='client_documents/')
+    uploaded_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.client.name} - {self.file.name}"
+    
 class Enrollment(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='enrollments')
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
