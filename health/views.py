@@ -9,6 +9,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializer import ClientProfileSerializer
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
+from .models import ClientDocument
+from .serializer import ClientDocumentSerializer
 
 # Create your views here.
 class ProgramViewSet(viewsets.ModelViewSet):
@@ -30,6 +33,11 @@ class ClientViewSet(viewsets.ModelViewSet):
         client = self.get_object()
         serializer = ClientProfileSerializer(client)
         return Response(serializer.data)
+    
+class ClientDocumentViewSet(viewsets.ModelViewSet):
+    queryset = ClientDocument.objects.all()
+    serializer_class = ClientDocumentSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
