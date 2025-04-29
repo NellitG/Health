@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Client, Program, Enrollment
+from .models import ClientDocument
 
 # Define the serializer for the Program model
 class ProgramSerializer(serializers.ModelSerializer):
@@ -11,6 +12,12 @@ class ProgramSerializer(serializers.ModelSerializer):
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
+        fields = '__all__'
+
+# Define the serializer for the ClientDocument model
+class ClientDocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClientDocument
         fields = '__all__'
 
 # Define the serializer for the Enrollment model
