@@ -1,6 +1,7 @@
 **🏥 Health Management System API**
 
 
+
 This is a simple Django REST Framework-based API for managing Clients, Programs, and Enrollments in a health organization.
 
 It supports client registration, program enrollment, client search, and profile viewing via API endpoints.
