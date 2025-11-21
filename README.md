@@ -37,23 +37,23 @@ Database: db.sqlite3 (default, easy to change)
 1. Clone the repository
 https://github.com/NellitG/Health.git
 
-    cd Health
+        cd Health
 
 3. Create and Activate a virtual env
    
-    env\Scripts\activate
+        env\Scripts\activate
 4. Install dependencies
 
-    pip install -r requirements.txt
+        pip install -r requirements.txt
 5. Apply Migrations
    
-    python manage.py migrate
+        python manage.py migrate
 6. Create superuser for admin
    
-    python manage.py createsuperuser
+        python manage.py createsuperuser
 7. Run development server
     
-   python manage.py runserver
+       python manage.py runserver
 
 **📚 API Endpoints**
 
